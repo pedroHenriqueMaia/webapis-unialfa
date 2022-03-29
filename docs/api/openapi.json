@@ -9,9 +9,8 @@
             "url": ""
         },
         "contact": {
-            "name": "Er Galvão Abbott",
-            "email": "galvao@galvao.eti.br",
-            "url": "https://galvao.eti.br"
+            "name": "Pedro Henrique Maia",
+            "email": "phmaia2018@gmail.com"
         }
     },
     "servers": [
@@ -50,6 +49,285 @@
                 "responses": {
                     "200": {
                         "description": "Lista os registros ou um registro apenas em caso da presença do cabeçalho x-id"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["acesso"],
+                "operationId": "post-acesso",
+                "description": "Cadastra um acesso",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "token",
+                        "in": "body",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cadastra um acesso"
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["acesso"],
+                "operationId": "patch-acesso",
+                "description": "Edita um acesso",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "token",
+                        "in": "body",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Edita um acesso"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["acesso"],
+                "operationId": "delete-acesso",
+                "description": "Remove um acesso",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Remove um acesso"
+                    }
+                }
+            }
+        },
+        "/v1/produto": {
+            "get": {
+                "tags": ["produto"],
+                "operationId": "get-produto",
+                "description": "Lista os produtos ou um produto apenas em caso da presença do cabeçalho x-id",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "id": "header",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista os produtos ou um produto apenas em caso da presença do cabeçalho x-id"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["produto"],
+                "operationId": "post-produto",
+                "description": "Cadastra um produto",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "nome",
+                        "in": "body",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "categoria_id",
+                        "in": "body",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "preco",
+                        "in": "body",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cadastra um produto"
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["produto"],
+                "operationId": "patch-produto",
+                "description": "Edita um produto",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "nome",
+                        "in": "body",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "categoria_id",
+                        "in": "body",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "preco",
+                        "in": "body",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Edita um produto"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["produto"],
+                "operationId": "delete-produto",
+                "description": "Remove um produto",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Remove um produto"
+                    }
+                }
+            }
+        },
+        "/v1/categoria": {
+            "get": {
+                "tags": ["categoria"],
+                "operationId": "get-categoria",
+                "description": "Lista as categorias ou uma categorias apenas em caso da presença do cabeçalho x-id",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista as categorias ou uma categorias apenas em caso da presença do cabeçalho x-id"
+                    }
+                }
+            },
+            "post": {
+                "tags": ["categoria"],
+                "operationId": "post-categoria",
+                "description": "Cadastra uma categoria",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "nome",
+                        "in": "body",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cadastra uma categoria"
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["categoria"],
+                "operationId": "patch-categoria",
+                "description": "Edita uma categoria",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "type": "string"
+                        },
+                        "name": "nome",
+                        "in": "body",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Edita uma categoria"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["categoria"],
+                "operationId": "delete-categoria",
+                "description": "Remove uma categoria",
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "name": "x-id",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Remove uma categoria"
                     }
                 }
             }

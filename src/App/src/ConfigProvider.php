@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Handler\CategoriaHandler;
+use App\Handler\CategoriaHandlerFactory;
+use App\Handler\ProdutoHandler;
+use App\Handler\ProdutoHandlerFactory;  
+
 /**
  * The configuration provider for the App module
  *
@@ -35,6 +40,8 @@ class ConfigProvider
             ],
             'factories'  => [
                 Handler\AcessoHandler::class => Handler\AcessoHandlerFactory::class,
+                CategoriaHandler::class => CategoriaHandlerFactory::class,
+                ProdutoHandler::class => ProdutoHandlerFactory::class,
             ],
         ];
     }

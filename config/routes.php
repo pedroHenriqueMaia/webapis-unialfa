@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Handler\ProdutoHandler;
+use App\Handler\CategoriaHandler;
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
 use Psr\Container\ContainerInterface;
@@ -39,4 +41,6 @@ use Psr\Container\ContainerInterface;
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->route('/v1/acesso', App\Handler\AcessoHandler::class, ['GET', 'POST', 'PATCH', 'DELETE']);
+    $app->route('/v1/produtos[/:idproduto]', ProdutoHandler::class, ['GET', 'POST', 'PATCH', 'DELETE']);
+    $app->route('/v1/categorias[/:idcategoria]', CategoriaHandler::class, ['GET', 'POST', 'PATCH', 'DELETE']);
 };
